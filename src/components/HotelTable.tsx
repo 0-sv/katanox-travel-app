@@ -33,6 +33,8 @@ const columns = [
   },
 ]
 
-export default ({ rows }: Props): React.ReactElement => {
-  return <Table columns={columns} data={rows}></Table>
-}
+const HotelTable = ({ rows }: Props): React.ReactElement => (
+  <Table columns={columns} data={rows}></Table>
+)
+
+export default HotelTable
