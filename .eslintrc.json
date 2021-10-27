@@ -3,12 +3,14 @@
     "airbnb-base",
     "airbnb-typescript",
     "prettier",
-    "plugin:node/recommended"
+    "plugin:node/recommended",
+    "plugin:react/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["prettier"],
+  "plugins": ["prettier", "@typescript-eslint"],
   "rules": {
     "prettier/prettier": "error",
     "no-unused-vars": "warn",
