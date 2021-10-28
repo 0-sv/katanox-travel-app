@@ -29,12 +29,12 @@ const columns = [
     title: 'Operations',
     dataIndex: 'operations',
     key: 'operations',
-    render: () => <a href="#">x</a>,
+    // render: () => <button onClick={foo}>x</button>,
   },
 ]
 
 const HotelTable = ({ rows }: Props): React.ReactElement => (
-  <Table columns={columns} data={rows}></Table>
+  <Table columns={columns} data={rows} />
 )
 
 export default HotelTable
