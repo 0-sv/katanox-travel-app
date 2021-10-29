@@ -1,3 +1,9 @@
+# For Katanox
+
+For the assignment I created this app per the discussed requirements. It's a basic create-react-app, please find the documentation below how to do basic operations like start and build.
+
+I've inserted comments starting with `TD` to indicate "Technical Debt" as per the requirements.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,23 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Table from 'rc-table'
-import { DefaultRecordType } from 'rc-table/lib/interface'
 
-interface Props {
-  rows: Array<DefaultRecordType>
-}
-
-const deleteRow = (
-  row:
-    | boolean
-    | React.ReactChild
-    | React.ReactFragment
-    | React.ReactPortal
-    | null
-    | undefined
-) => {
+const deleteRow = (row: React.ReactNode) => {
   console.info(row)
 }
 
+// TD: column metadata can also come from a decent ORM,
+// so we shouldn't have to initialize it manually here.
 const columns = [
   {
     title: 'Hotel ID',
@@ -47,8 +36,9 @@ const columns = [
   },
 ]
 
-const HotelTable = ({ rows }: Props): React.ReactElement => (
-  <Table columns={columns} data={rows} />
-)
+const HotelTable = (): React.ReactElement => {
+  const [data] = useState(JSON.parse(localStorage.getItem('hotels') || '{}'))
+  return <Table columns={columns} data={data} />
+}
 
 export default HotelTable
