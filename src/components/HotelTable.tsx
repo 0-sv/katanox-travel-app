@@ -9,8 +9,8 @@ interface Props {
 const columns = [
   {
     title: 'Hotel ID',
-    dataIndex: 'hotelId',
-    key: 'hotelId',
+    dataIndex: 'id',
+    key: 'id',
     width: 150,
   },
   {

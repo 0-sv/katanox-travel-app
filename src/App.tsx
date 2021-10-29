@@ -4,7 +4,7 @@ import HotelTable from './components/HotelTable'
 
 const App = (): React.ReactElement => (
   <div className='App'>
-    <HotelTable rows={[]} />
+    <HotelTable rows={JSON.parse(localStorage.getItem('hotels') || '{}')} />
   </div>
 )
 
