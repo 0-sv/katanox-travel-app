@@ -38,11 +38,11 @@ const columns = [
     width: 250,
   },
   {
-    title: ' ',
+    title: 'Delete',
     dataIndex: 'delete',
     key: 'delete',
     render: (row: React.ReactNode) => (
-      <button onClick={() => deleteRow(row)}>x</button>
+      <button onClick={() => deleteRow(row)}></button>
     ),
   },
 ]
