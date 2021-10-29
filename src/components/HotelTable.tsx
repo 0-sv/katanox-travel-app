@@ -11,7 +11,7 @@ const columns = [
     title: 'Hotel ID',
     dataIndex: 'hotelId',
     key: 'hotelId',
-    width: 50,
+    width: 150,
   },
   {
     title: 'Name',
@@ -25,12 +25,12 @@ const columns = [
     key: 'address',
     width: 250,
   },
-  {
-    title: 'Operations',
-    dataIndex: 'operations',
-    key: 'operations',
-    // render: () => <button onClick={foo}>x</button>,
-  },
+  // {
+  //   title: 'Operations',
+  //   dataIndex: 'operations',
+  //   key: 'operations',
+  // render: () => <button onClick={foo}>x</button>,
+  // },
 ]
 
 const HotelTable = ({ rows }: Props): React.ReactElement => (
