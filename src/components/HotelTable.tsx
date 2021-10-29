@@ -6,6 +6,18 @@ interface Props {
   rows: Array<DefaultRecordType>
 }
 
+const deleteRow = (
+  row:
+    | boolean
+    | React.ReactChild
+    | React.ReactFragment
+    | React.ReactPortal
+    | null
+    | undefined
+) => {
+  console.info(row)
+}
+
 const columns = [
   {
     title: 'Hotel ID',
@@ -25,12 +37,14 @@ const columns = [
     key: 'address',
     width: 250,
   },
-  // {
-  //   title: 'Operations',
-  //   dataIndex: 'operations',
-  //   key: 'operations',
-  // render: () => <button onClick={foo}>x</button>,
-  // },
+  {
+    title: ' ',
+    dataIndex: 'delete',
+    key: 'delete',
+    render: (row: React.ReactNode) => (
+      <button onClick={() => deleteRow(row)}>x</button>
+    ),
+  },
 ]
 
 const HotelTable = ({ rows }: Props): React.ReactElement => (
