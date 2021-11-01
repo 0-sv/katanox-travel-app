@@ -7,6 +7,7 @@ import HotelTable from './components/HotelTable'
 // like a nice <Nav/> or </Footer>.
 const App = (): React.ReactElement => (
   <div className='App'>
+    <h1>Available Hotels</h1>
     <AutoComplete />
     <HotelTable />
   </div>
