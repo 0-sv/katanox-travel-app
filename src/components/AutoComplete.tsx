@@ -1,27 +1,25 @@
 import { DefaultRecordType } from 'rc-table/lib/interface'
 import React, { Dispatch, useState } from 'react'
 
-const AutoComplete = (): React.ReactElement => {
-  const [input, setInput] = useState('')
-  // const [options, setOptions] = useState([])
-  const [hotels]: [
-    Array<DefaultRecordType>,
-    Dispatch<Array<DefaultRecordType>>
-  ] = useState(JSON.parse(localStorage.getItem('hotels') || '{}'))
+interface Props {
+  hotels: Array<DefaultRecordType>
+  setHotels: Dispatch<Array<DefaultRecordType>>
+}
 
+const AutoComplete = ({ hotels }: Props): React.ReactElement => {
+  const [input, setInput] = useState('')
   const matches = hotels
     .map((h: DefaultRecordType) => h.name)
     .filter((h) => h.match(new RegExp(input)))
 
-  // Loop through hotels
-  // if name is included in matches
-  //    then .nameFilter = true
-  const showHotels = hotels.map((m) => ({
-    ...m,
-    nameFilter: matches.includes(m.name),
-  }))
+  // const showHotels = hotels.map((m) => ({
+  //   ...m,
+  //   nameFilter: matches.includes(m.name),
+  // }))
 
-  console.log(showHotels)
+  // setHotels(showHotels)
+
+  // localStorage.setItem('hotels', JSON.stringify(showHotels))
 
   return (
     <div className='Filters'>
