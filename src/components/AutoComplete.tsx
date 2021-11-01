@@ -6,20 +6,12 @@ interface Props {
   setHotels: Dispatch<Array<DefaultRecordType>>
 }
 
-const AutoComplete = ({ hotels }: Props): React.ReactElement => {
+const AutoComplete = ({ hotels, setHotels }: Props): React.ReactElement => {
   const [input, setInput] = useState('')
-  const matches = hotels
-    .map((h: DefaultRecordType) => h.name)
-    .filter((h) => h.match(new RegExp(input)))
 
-  // const showHotels = hotels.map((m) => ({
-  //   ...m,
-  //   nameFilter: matches.includes(m.name),
-  // }))
-
-  // setHotels(showHotels)
-
-  // localStorage.setItem('hotels', JSON.stringify(showHotels))
+  const handleChange = () => {
+    setHotels(hotels.filter((hotel) => hotel.name.match(new RegExp(input))))
+  }
 
   return (
     <div className='Filters'>
@@ -30,10 +22,11 @@ const AutoComplete = ({ hotels }: Props): React.ReactElement => {
         placeholder='Hilton...'
         value={input}
         onInput={(e) => setInput((e.target as HTMLTextAreaElement).value)}
+        onChange={handleChange}
       />
       <datalist id='autocomplete'>
-        {matches.map((m, i) => (
-          <option key={i} value={m} />
+        {hotels.map((m, i) => (
+          <option key={i} value={m.name} />
         ))}
       </datalist>
     </div>

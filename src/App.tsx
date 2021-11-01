@@ -11,6 +11,7 @@ const App = (): React.ReactElement => {
     Array<DefaultRecordType>,
     Dispatch<Array<DefaultRecordType>>
   ] = useState(JSON.parse(localStorage.getItem('hotels') || '{}'))
+  console.log(hotels)
   return (
     <div className='App'>
       <h1>Available Hotels</h1>
