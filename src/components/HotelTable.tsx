@@ -43,7 +43,7 @@ const HotelTable = ({ hotels, setHotels }: Props): React.ReactElement => (
         ),
       },
     ]}
-    data={hotels}
+    data={hotels.filter((hotel) => hotel.nameFilter)}
   />
 )
 
