@@ -8,9 +8,9 @@ interface Props {
 }
 
 const HotelTable = ({ hotels, setHotels }: Props): React.ReactElement => (
-  // TD: column metadata can also come from a decent ORM,
-  // so we shouldn't have to initialize it manually here.
   <Table
+    // TD: column metadata can also come from a decent ORM,
+    // so we shouldn't have to initialize it manually here.
     columns={[
       {
         title: 'Hotel ID',
@@ -23,6 +23,15 @@ const HotelTable = ({ hotels, setHotels }: Props): React.ReactElement => (
         dataIndex: 'name',
         key: 'name',
         width: 150,
+        onCell: (record) => ({
+          onClick() {
+            if (
+              hotels.map((hotel) => hotel.nameFilter).filter(Boolean).length ===
+              1
+            )
+              console.log(`${record.name}`)
+          },
+        }),
       },
       {
         title: 'Address',
@@ -33,12 +42,25 @@ const HotelTable = ({ hotels, setHotels }: Props): React.ReactElement => (
       {
         title: 'Delete',
         dataIndex: '',
-        key: 'd',
+        key: 'delete',
         render: (record: DefaultRecordType) => (
           <button
             onClick={() =>
               setHotels(hotels.filter((hotel) => hotel.id !== record.id))
             }
+          />
+        ),
+      },
+      {
+        title: 'Select',
+        dataIndex: '',
+        key: 'select',
+        render: (index: any) => (
+          <input
+            type='checkbox'
+            // checked={record.isSelected}
+            // onClick={() => setHotels({ ...hotels, ...selected })}
+            onClick={() => console.log(index)}
           />
         ),
       },
