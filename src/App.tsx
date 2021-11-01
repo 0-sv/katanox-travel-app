@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import AutoComplete from './components/Autoocomplete'
+import AutoComplete from './components/AutoComplete'
 import HotelTable from './components/HotelTable'
 
 // TD: we didn't include any other components for a usual web app,
