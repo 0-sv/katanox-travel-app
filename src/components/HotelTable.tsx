@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import Table from 'rc-table'
 import { DefaultRecordType } from 'rc-table/lib/interface'
 
-// TD: column metadata can also come from a decent ORM,
-// so we shouldn't have to initialize it manually here.
 const HotelTable = (): React.ReactElement => {
   const [hotels, setHotels] = useState(
     JSON.parse(localStorage.getItem('hotels') || '{}')
   )
   return (
+    // TD: column metadata can also come from a decent ORM,
+    // so we shouldn't have to initialize it manually here.
     <Table
       columns={[
         {
