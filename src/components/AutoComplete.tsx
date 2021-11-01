@@ -13,9 +13,15 @@ const AutoComplete = (): React.ReactElement => {
     .map((h: DefaultRecordType) => h.name)
     .filter((h) => h.match(new RegExp(input)))
 
-  console.log(matches)
-  console.log(input)
-  console.log(hotels.map((h: DefaultRecordType) => h.name))
+  // Loop through hotels
+  // if name is included in matches
+  //    then .nameFilter = true
+  const showHotels = hotels.map((m) => ({
+    ...m,
+    nameFilter: matches.includes(m.name),
+  }))
+
+  console.log(showHotels)
 
   return (
     <div className='Filters'>
@@ -24,7 +30,6 @@ const AutoComplete = (): React.ReactElement => {
         list='autocomplete'
         pattern='[a-zA-Z ]*'
         placeholder='Hilton...'
-        autoComplete='organization'
         value={input}
         onInput={(e) => setInput((e.target as HTMLTextAreaElement).value)}
       />
