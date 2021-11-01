@@ -23,12 +23,16 @@ const AutoComplete = (): React.ReactElement => {
         type='search'
         list='autocomplete'
         pattern='[a-zA-Z ]*'
-        placeholder='hilton...'
+        placeholder='Hilton...'
         autoComplete='organization'
         value={input}
         onInput={(e) => setInput((e.target as HTMLTextAreaElement).value)}
       />
-      <datalist id='autocomplete' />
+      <datalist id='autocomplete'>
+        {matches.map((m, i) => (
+          <option key={i} value={m} />
+        ))}
+      </datalist>
     </div>
   )
 }
