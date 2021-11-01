@@ -14,21 +14,25 @@ const hotels: Array<DefaultRecordType> = [
     name: 'Hilton Rotterdam',
     address: 'Weena 10 3012 CM Rotterdam',
     id: nanoid(5),
+    nameFilter: true,
   },
   {
     name: 'Hilton Garden Inn Leiden',
     address: 'Willem Einthovenstraat 3 Oegstgeest',
     id: nanoid(5),
+    nameFilter: true,
   },
   {
     name: 'Four Seasons Resort Dubai',
     address: '2 Jumeirah St',
     id: nanoid(5),
+    nameFilter: true,
   },
   {
     name: 'Four Seasons Hotel Prague',
     address: 'Veleslavinova 1098 2a Prague',
     id: nanoid(5),
+    nameFilter: true,
   },
 ]
 
