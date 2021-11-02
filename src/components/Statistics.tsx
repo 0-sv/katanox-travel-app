@@ -7,15 +7,18 @@ interface Props {
 }
 
 const Statistics = ({ hotels, selected }: Props): React.ReactElement => {
-  console.log(hotels)
-  console.log(selected)
   const [labelText, setLabelText] = useState('')
   return (
     <div className='statistics'>
-      <button onClick={() => setLabelText(JSON.stringify(selected))}>
+      <button
+        onClick={() =>
+          setLabelText(
+            JSON.stringify(hotels.filter((hotel, idx) => selected[idx]))
+          )
+        }>
         Show statistics!
       </button>
-      <p>{labelText} </p>
+      <p>{labelText}</p>
     </div>
   )
 }
