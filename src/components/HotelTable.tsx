@@ -15,6 +15,9 @@ const HotelTable = ({
   selected,
   setSelected,
 }: Props): React.ReactElement => (
+  // TD: I was looking for an easy Table component...
+  // rc-table has quite inconsistent behaviour, but is easy to use
+  // Would definitely pick another Table component library for the next project.
   <Table
     // TD: column metadata can also come from a decent ORM,
     // so we shouldn't have to initialize it manually here.
