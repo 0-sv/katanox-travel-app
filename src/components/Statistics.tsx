@@ -3,7 +3,7 @@ import { DefaultRecordType } from 'rc-table/lib/interface'
 
 interface Props {
   hotels: Array<DefaultRecordType>
-  selected: Array<DefaultRecordType>
+  selected: Array<Boolean>
 }
 
 const Statistics = ({ hotels, selected }: Props): React.ReactElement => {
@@ -13,10 +13,14 @@ const Statistics = ({ hotels, selected }: Props): React.ReactElement => {
       <button
         onClick={() =>
           setLabelText(
-            JSON.stringify(hotels.filter((hotel, idx) => selected[idx]))
+            JSON.stringify(
+              hotels
+                .map((hotel) => hotel.name)
+                .filter((hotel, idx) => selected[idx])
+            )
           )
         }>
-        Show statistics!
+        Show statistics
       </button>
       <p>{labelText}</p>
     </div>

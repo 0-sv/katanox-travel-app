@@ -34,6 +34,30 @@ const hotels: Array<DefaultRecordType> = [
     id: nanoid(5),
     nameFilter: true,
   },
+  {
+    name: 'Best Western Greenfield Inn',
+    address: '3000 Enterprise Drive, Allen Park',
+    id: nanoid(5),
+    nameFilter: true,
+  },
+  {
+    name: 'Best Western Athens Inn',
+    address: '1329 Us Highway 72 E, Athens',
+    id: nanoid(5),
+    nameFilter: true,
+  },
+  {
+    name: 'Best Western Gold Canyon Inn & Suites',
+    address: '8333 E Sunrise Sky Drive, Gold Canyon',
+    id: nanoid(5),
+    nameFilter: true,
+  },
+  {
+    name: 'Best Western Heritage Inn',
+    address: '	4600 Clayton Road, Concord',
+    id: nanoid(5),
+    nameFilter: true,
+  },
 ]
 
 localStorage.setItem('hotels', JSON.stringify(hotels))

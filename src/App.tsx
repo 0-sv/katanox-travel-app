@@ -1,24 +1,19 @@
 import { DefaultRecordType } from 'rc-table/lib/interface'
-import React, { Dispatch, useState } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import './App.css'
 import AutoComplete from './components/AutoComplete'
 import HotelTable from './components/HotelTable'
 import Statistics from './components/Statistics'
 
-// TD: we didn't include any other components for a usual web app,
-// like a nice <Nav/> or </Footer>.
 const App = (): React.ReactElement => {
   const [hotels, setHotels]: [
     Array<DefaultRecordType>,
-    Dispatch<Array<DefaultRecordType>>
+    Dispatch<SetStateAction<Array<DefaultRecordType>>>
   ] = useState(JSON.parse(localStorage.getItem('hotels') || '[]'))
-  // console.log(hotels)
-  const [selected, setSelected]: [any, any] = useState([
-    false,
-    false,
-    false,
-    false,
-  ])
+  const [selected, setSelected]: [
+    Array<Boolean>,
+    Dispatch<SetStateAction<Array<Boolean>>>
+  ] = useState<Boolean[]>([])
   return (
     <div className='App'>
       <h1>Available Hotels</h1>

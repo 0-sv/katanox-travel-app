@@ -1,12 +1,12 @@
-import React, { Dispatch } from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import Table from 'rc-table'
 import { DefaultRecordType } from 'rc-table/lib/interface'
 
 interface Props {
   hotels: Array<DefaultRecordType>
-  setHotels: Dispatch<Array<DefaultRecordType>>
-  selected: Array<DefaultRecordType>
-  setSelected: Dispatch<Array<DefaultRecordType>>
+  setHotels: Dispatch<SetStateAction<Array<DefaultRecordType>>>
+  selected: Array<Boolean>
+  setSelected: Dispatch<SetStateAction<Array<Boolean>>>
 }
 
 const HotelTable = ({
@@ -33,6 +33,8 @@ const HotelTable = ({
         // TD: extract this into a function to generalize for all columns
         onCell: (record) => ({
           onClick() {
+            // TD: very hacky way to check that we've filtered down to one hotel,
+            // in hindsight would've used Redux.
             if (
               hotels.map((hotel) => hotel.nameFilter).filter(Boolean).length ===
               1
@@ -63,7 +65,7 @@ const HotelTable = ({
         title: 'Select',
         dataIndex: '',
         key: 'select',
-        render: (value: any, record: DefaultRecordType, index: number) => (
+        render: (index: number) => (
           <input
             type='checkbox'
             onClick={(e) => {
@@ -72,9 +74,6 @@ const HotelTable = ({
                   [index]: (e.target as HTMLInputElement).checked,
                 })
               )
-              // console.log((e.target as HTMLInputElement).checked)
-              // console.log(hotels)
-              // console.log(selected)
             }}
           />
         ),
