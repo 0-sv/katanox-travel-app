@@ -5,9 +5,16 @@ import { DefaultRecordType } from 'rc-table/lib/interface'
 interface Props {
   hotels: Array<DefaultRecordType>
   setHotels: Dispatch<Array<DefaultRecordType>>
+  selected: Array<DefaultRecordType>
+  setSelected: Dispatch<Array<DefaultRecordType>>
 }
 
-const HotelTable = ({ hotels, setHotels }: Props): React.ReactElement => (
+const HotelTable = ({
+  hotels,
+  setHotels,
+  selected,
+  setSelected,
+}: Props): React.ReactElement => (
   <Table
     // TD: column metadata can also come from a decent ORM,
     // so we shouldn't have to initialize it manually here.
@@ -23,6 +30,7 @@ const HotelTable = ({ hotels, setHotels }: Props): React.ReactElement => (
         dataIndex: 'name',
         key: 'name',
         width: 150,
+        // TD: extract this into a function to generalize for all columns
         onCell: (record) => ({
           onClick() {
             if (
@@ -55,12 +63,19 @@ const HotelTable = ({ hotels, setHotels }: Props): React.ReactElement => (
         title: 'Select',
         dataIndex: '',
         key: 'select',
-        render: (index: any) => (
+        render: (value: any, record: DefaultRecordType, index: number) => (
           <input
             type='checkbox'
-            // checked={record.isSelected}
-            // onClick={() => setHotels({ ...hotels, ...selected })}
-            onClick={() => console.log(index)}
+            onClick={(e) => {
+              setSelected(
+                Object.assign(selected, {
+                  [index]: (e.target as HTMLInputElement).checked,
+                })
+              )
+              // console.log((e.target as HTMLInputElement).checked)
+              // console.log(hotels)
+              // console.log(selected)
+            }}
           />
         ),
       },
