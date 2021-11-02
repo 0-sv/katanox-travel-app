@@ -4,6 +4,21 @@ For the assignment I created this app per the discussed requirements. It's a bas
 
 I've inserted comments starting with `TD` to indicate "Technical Debt" as per the requirements.
 
+## E2E tests
+
+I decided to not spend too much time on it, but here's an idea of how I would approach it.
+
+We could describe a "feature" in Gherkin and pull it through Cucumber (preprocessor) + the Cypress E2E framework. We could describe a test scenario as follows, e.g. if we want to verify the outcome when a user presses the button "Show statistics":
+
+```yaml
+Feature: Show statistics
+
+  Scenario: User opens the travel app
+    Given: User selects one or more hotel rows in the "Select" column 
+    When: User clicks on "Show statistics"
+    Then: User sees a list of the selected hotel names
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
