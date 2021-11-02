@@ -65,7 +65,7 @@ const HotelTable = ({
         title: 'Select',
         dataIndex: '',
         key: 'select',
-        render: (index: number) => (
+        render: (value: any, record: DefaultRecordType, index: number) => (
           <input
             type='checkbox'
             onClick={(e) => {
