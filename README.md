@@ -1,6 +1,6 @@
 # For Katanox
 
-For the assignment I created this app per the discussed requirements. It's a basic create-react-app, please find the documentation below how to do basic operations like start and build. But you will probably want to use:
+For the assignment I created this app per the discussed requirements. It's a basic create-react-app, so the usual scripts are there in `package.json`. But you would probably want to use:
 
 `npm start` 
 
