@@ -21,49 +21,11 @@ Feature: Show statistics
     Then: User sees a list of the selected hotel names
 ```
 
-# Getting Started with Create React App
+## Addressing ambiguities in assessment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+My retrospective would be now (2-11-2021):
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- "Once the user selects a value from the filtered hotels, it should print it in the console." -- I only enabled the user to select the name once the filtered list is down to one. It's not very intuitive and user friendly like this, it should've been done for all columns or at least some css:hover, but I am a bit on a tight schedule this week with many assessments.
+- "You can use bootstrap or any other framework for it’s grid system (not the js part though)" -- I think I misinterpreted this, since I used a React component called `rc-table`, while you in fact expected me to create a 2D grid for the main table.
+- For task 2 I was figuring out how to maintain the state between components, and it seemed useful to add an extra prop. But for task 3, I maintained state with the `useState` hook. In hindsight it would've been nicer to keep the state both with useState as the extra prop is unnecessarily limiting, or with Redux.
+- In an e-mail I asked whether I could dynamically print the list, but it was easier to place a button because the event logic is much simpler. I think this insight should come with experience, so I will pay attention next time.
